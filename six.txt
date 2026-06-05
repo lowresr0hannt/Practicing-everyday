@@ -1,4 +1,3 @@
 one
 one
-3333
-jiji
+six
