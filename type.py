@@ -1,25 +1,23 @@
-class dog:
-    def __init__(self,name,breed,owner):
-        self.name=name
-        self.breed=breed
-        self.owner=owner
-
-
-    def bark(self):
-        print("woof woof")
+from datetime import datetime
+class User:
+    def __init__(self,username,email,password):
+        self.username=username
+        self._email=email
+        self.password=password
         
-class Owner:
-    def __init__(self,name,address,contact_number):
-        self.name= name
-        self.address= address
-        self.phone = contact_number
+    def get_email(self):
+        print(f"Email accessed at {datetime.now()}")
+        return self._email
     
+    def set_email(self,new_email):
+        self._email=new_email
+    
+        
+        
+user1 =User("Rohan","rohan@mail.com","rohanyes1")
 
-owner1=Owner("Danny","Delhi","999-009090808")
-dog1 = dog("hell","street",owner1)
-print(dog1.owner.name)
+print(user1.get_email())
 
+user1.set_email("rohan@hotlook.com")
 
-owner2=Owner("Rohan","Gr Noida","8897676388")
-dog2 = dog("nah","pug",owner2)
-print(dog2.owner.name)
+print(user1.get_email())
