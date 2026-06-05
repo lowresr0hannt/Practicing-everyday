@@ -1,5 +1,5 @@
-name = "Ankit"
+name = "rohan"
 age = 29
 
-print(type(name))
+print(name.upper())
 print (type(age))
