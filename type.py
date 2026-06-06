@@ -1,29 +1,36 @@
-class BankAccount:
-    MIN_BALANCE = 100
-    
-    def __init__(self, owner, balance=0):
-        self.owner = owner
-        self._balance =balance
+class BadBankAccount:
+    def __init__(self,balance):
+        self.balance=balance
         
-    def deposit (self,amount):
-        if amount > 0:
-            self._balance += amount
-            print(f"{self.owner}'s new balance: {self._balance}")
-        else:
-            print("deposit amount must be positive")
-            
-    @staticmethod
-    def is_valid_int_rate(rate):
-        return 0 <= rate <= 5
+account = BadBankAccount(0.0)
+account.balance = -1 
+print(account.balance)
 
 
-account = BankAccount("kat",500)
-account.deposit(2000000000)
-
-print(BankAccount.is_valid_int_rate(3))
-print(BankAccount.is_valid_int_rate(10))
-
-<<<<<<< HEAD
-print(user1.get_email())
-=======
->>>>>>> c15947e (bank)
+class BankAccount:
+    def __init__(self):
+        self._balance = 0.0
+    
+    @property
+    def balance(self):
+        return self._balance
+    
+    def deposit(self, amount):
+        if amount <= 0:
+            raise ValueError("Deposit amount must be positive")
+        self._balance += amount
+        
+    def withdraw(self, amount):
+        if amount <= 0:
+            raise ValueError("Withdraw amount must be positive")
+        if amount > self._balance:
+            raise ValueError("Insufficient Funds")
+        self._balance -= amount
+        
+account = BankAccount ()
+print(account.balance)
+account.deposit(1.99)
+print(account.balance)
+account.withdraw(1)
+print(account.balance)
+account.withdraw(.4)
