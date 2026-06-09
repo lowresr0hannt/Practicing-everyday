@@ -1,0 +1,66 @@
+# STRING
+name = "Rohan"
+print("Name:", name)
+print("First letter:", name[0])
+
+# LIST (ordered, changeable)
+subjects = ["Python", "Maths", "CN"]
+subjects.append("DAA")
+
+print("\nList:")
+for subject in subjects:
+    print(subject)
+
+# TUPLE (ordered, cannot be changed)
+student = ("Rohan", 20, "BCA")
+
+print("\nTuple:")
+print("Name:", student[0])
+print("Age:", student[1])
+
+# SET (unordered, unique values only)
+numbers = {10, 20, 30, 20, 10}
+
+print("\nSet:")
+print(numbers)
+
+numbers.add(40)
+print("After adding 40:", numbers)
+
+# DICTIONARY (key-value pairs)
+marks = {
+    "Python": 95,
+    "Maths": 88,
+    "CN": 90
+}
+
+print("\nDictionary:")
+for subject, score in marks.items():
+    print(subject, "->", score)
+
+# LIST COMPREHENSION
+squares = [x**2 for x in range(1, 6)]
+
+print("\nSquares:")
+print(squares)
+
+# USING MULTIPLE DATA STRUCTURES TOGETHER
+students = [
+    {"name": "Rohan", "marks": 95},
+    {"name": "Prachi", "marks": 90},
+    {"name": "Aman", "marks": 85}
+]
+
+print("\nStudents:")
+for student in students:
+    print(student["name"], "-", student["marks"])
+
+# FIND TOPPER
+topper = students[0]
+
+for student in students:
+    if student["marks"] > topper["marks"]:
+        topper = student
+
+print("\nTopper:")
+print(topper["name"], topper["marks"])
